@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-08-15T18:56:59.034Z",
+  "snapshot": "uncommitted:codex/v0.1.0-implementation",
+  "environment": {
+    "runtime": "v22.22.2",
+    "platform": "darwin-arm64",
+    "osRelease": "25.5.0",
+    "cpu": "Apple M4 Pro",
+    "hostMemoryBytes": 25769803776,
+    "docker": "28.3.3",
+    "dockerAssignedCpus": 2,
+    "dockerAssignedMemoryBytes": 8308527104,
+    "serverJava": "17.0.19",
+    "mysqlImage": "mysql:8.4",
+    "elasticsearchImage": "docker.elastic.co/elasticsearch/elasticsearch:8.18.1"
+  },
+  "target": "http://127.0.0.1:8080",
+  "corpus": {
+    "generator": "benchmarks/generate-corpus.mjs",
+    "expectedNotes": 1000,
+    "indexedNotes": 1000
+  },
+  "indexStatus": {
+    "state": "ready",
+    "indexedNotes": 1000,
+    "pendingTasks": 0,
+    "deadTasks": 0,
+    "lastReconciledAt": "2026-08-15T18:56:37.880249990Z",
+    "lastSuccessfulIndexAt": "2026-08-15T18:56:58.470398347Z"
+  },
+  "indexing": {
+    "measurement": "application-container-start-to-ready",
+    "startedAt": "2026-08-15T18:56:21.523Z",
+    "readyAt": "2026-08-15T18:56:58.896Z",
+    "durationMs": 37373
+  },
+  "warmup": {
+    "requests": 100,
+    "policy": "sequential queries before timed scenarios"
+  },
+  "scenarios": [
+    {
+      "concurrency": 1,
+      "requests": 200,
+      "p50LatencyMs": 7.485,
+      "p95LatencyMs": 15.227,
+      "throughputRequestsPerSecond": 116.492,
+      "failureRate": 0
+    },
+    {
+      "concurrency": 16,
+      "requests": 200,
+      "p50LatencyMs": 39.451,
+      "p95LatencyMs": 61.003,
+      "throughputRequestsPerSecond": 386.385,
+      "failureRate": 0
+    },
+    {
+      "concurrency": 64,
+      "requests": 200,
+      "p50LatencyMs": 144.976,
+      "p95LatencyMs": 287.412,
+      "throughputRequestsPerSecond": 372.697,
+      "failureRate": 0
+    }
+  ]
+}

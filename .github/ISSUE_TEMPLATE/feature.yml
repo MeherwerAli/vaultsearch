@@ -1,0 +1,26 @@
+name: Focused feature
+description: Propose a bounded parser, connector, API, or reliability improvement.
+title: "[feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the observable limitation with a public-safe example.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Proposed boundary
+      description: Name the interface and what remains out of scope.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Acceptance evidence
+      description: List the test or benchmark that would establish the change.
+    validations:
+      required: true

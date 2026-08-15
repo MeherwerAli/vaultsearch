@@ -1,0 +1,9 @@
+target/
+.idea/
+.vscode/
+.DS_Store
+.env
+reports/*.local.*
+benchmark-vault/
+.benchmark-work/
+reports/raw/*.json

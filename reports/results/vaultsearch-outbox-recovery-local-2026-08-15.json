@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-08-15T18:57:58.793Z",
+  "snapshot": "uncommitted:codex/v0.1.0-implementation",
+  "runId": "5135997a-496b-4d52-94b1-d0eecfb228ef",
+  "elapsedMs": 20429.01,
+  "failureStatus": {
+    "state": "degraded",
+    "indexedNotes": 1000,
+    "pendingTasks": 1,
+    "deadTasks": 0,
+    "lastReconciledAt": "2026-08-15T18:57:41.614301955Z",
+    "lastSuccessfulIndexAt": "2026-08-15T18:57:38.504957927Z"
+  },
+  "persistedTask": {
+    "operation": "UPSERT",
+    "status": "PENDING",
+    "attempts": 1,
+    "lastErrorCode": "DataAccessResourceFailureException",
+    "payloadBytes": 690,
+    "noteIndexState": "FAILED",
+    "deleted": false
+  },
+  "recoveredStatus": {
+    "state": "ready",
+    "indexedNotes": 1000,
+    "pendingTasks": 0,
+    "deadTasks": 0,
+    "lastReconciledAt": "2026-08-15T18:57:42.195613225Z",
+    "lastSuccessfulIndexAt": "2026-08-15T18:57:57.759377136Z"
+  },
+  "recoveredHit": {
+    "noteId": "959cd177af7ae86da45cd9d2bc35a15356a8361f2df6d79960fa2d1a4896de59",
+    "relativePath": "note-0.md",
+    "title": "Reliability Runbook 0",
+    "excerpt": "…spect dependency latency - validate queue depth - confirm circuit breaker state outage recovery evidence",
+    "tags": [
+      "synthetic",
+      "service-0"
+    ],
+    "score": 12.02255916595459,
+    "modifiedAt": "2026-08-15T18:57:41.222Z"
+  },
+  "finalStatus": {
+    "state": "ready",
+    "indexedNotes": 1000,
+    "pendingTasks": 0,
+    "deadTasks": 0,
+    "lastReconciledAt": "2026-08-15T18:57:58.633741856Z",
+    "lastSuccessfulIndexAt": "2026-08-15T18:57:58.853019275Z"
+  }
+}

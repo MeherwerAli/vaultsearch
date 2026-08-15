@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: vaultsearch
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/vaultsearch?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DATABASE_USERNAME:vaultsearch}
+    password: ${DATABASE_PASSWORD:vaultsearch}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+  elasticsearch:
+    uris: ${ELASTICSEARCH_URL:http://localhost:9200}
+
+vaultsearch:
+  vault-root: ${VAULT_ROOT:../engineering-knowledge-vault}
+  vault-key: ${VAULT_KEY:default}
+  display-name: ${VAULT_DISPLAY_NAME:Engineering Knowledge Vault}
+  api-key: ${VAULTSEARCH_API_KEY:local-development-key}
+  max-file-bytes: ${MAX_FILE_BYTES:2097152}
+  reconcile-interval: ${RECONCILE_INTERVAL:60s}
+  watcher-debounce: ${WATCHER_DEBOUNCE:500ms}
+  watcher-enabled: ${WATCHER_ENABLED:true}
+  startup-reconcile-enabled: ${STARTUP_RECONCILE_ENABLED:true}
+  scheduled-index-worker-enabled: ${SCHEDULED_INDEX_WORKER_ENABLED:true}
+  max-index-attempts: ${MAX_INDEX_ATTEMPTS:8}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+server:
+  shutdown: graceful

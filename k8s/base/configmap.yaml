@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vaultsearch-config
+data:
+  DATABASE_URL: jdbc:mysql://mysql.example.internal:3306/vaultsearch?useSSL=true
+  DATABASE_USERNAME: vaultsearch
+  ELASTICSEARCH_URL: https://elasticsearch.example.internal:9200
+  VAULT_ROOT: /vault
+  VAULT_KEY: default
+  VAULT_DISPLAY_NAME: Engineering Knowledge Vault
+  WATCHER_ENABLED: "true"

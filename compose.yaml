@@ -1,0 +1,61 @@
+name: vaultsearch
+
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: vaultsearch
+      MYSQL_USER: vaultsearch
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD:-vaultsearch-local}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root-local-only}
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.18.1
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail --silent http://127.0.0.1:9200/_cluster/health >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  vaultsearch:
+    build: .
+    environment:
+      DATABASE_URL: jdbc:mysql://mysql:3306/vaultsearch?useSSL=false&allowPublicKeyRetrieval=true
+      DATABASE_USERNAME: vaultsearch
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-vaultsearch-local}
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      VAULT_ROOT: /vault
+      VAULT_KEY: engineering-demo
+      VAULT_DISPLAY_NAME: Engineering Knowledge Vault
+      VAULTSEARCH_API_KEY: ${VAULTSEARCH_API_KEY:-local-development-key-change-me}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8080:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ${VAULT_ROOT_HOST:-../engineering-knowledge-vault}:/vault:ro
+
+volumes:
+  mysql-data:
+  elasticsearch-data:

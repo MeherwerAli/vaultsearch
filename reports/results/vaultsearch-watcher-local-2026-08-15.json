@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-08-15T18:57:38.289Z",
+  "snapshot": "uncommitted:codex/v0.1.0-implementation",
+  "expectedDebounceMs": 500,
+  "configuredPeriodicReconciliationMs": 60000,
+  "timeoutMs": 75000,
+  "createVisibleMs": 1475.026,
+  "deleteInvisibleMs": 26232.278,
+  "observation": "timing-compatible-with-periodic-reconciliation-backstop",
+  "finalStatus": {
+    "state": "ready",
+    "indexedNotes": 1000,
+    "pendingTasks": 0,
+    "deadTasks": 0,
+    "lastReconciledAt": "2026-08-15T18:57:37.835722644Z",
+    "lastSuccessfulIndexAt": "2026-08-15T18:57:38.504957927Z"
+  }
+}
