@@ -49,6 +49,15 @@ curl -X POST -H 'Authorization: Bearer replace-with-a-long-random-value' \
   'http://127.0.0.1:8080/api/v1/index/reconcile'
 ```
 
+## Published artifacts
+
+- [VaultSearch v0.1.0](https://github.com/MeherwerAli/vaultsearch/releases/tag/v0.1.0) provides the executable JAR and its SHA-256 checksum.
+- The container image is published as `ghcr.io/meherwerali/vaultsearch:0.1.0`.
+
+```bash
+docker pull ghcr.io/meherwerali/vaultsearch:0.1.0
+```
+
 ## API behavior
 
 | Endpoint | Behavior |
