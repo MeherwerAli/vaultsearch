@@ -13,7 +13,7 @@
 
     <groupId>dev.meherwerali</groupId>
     <artifactId>vaultsearch</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>VaultSearch</name>
     <description>Headless, Obsidian-independent search projection for Markdown vaults.</description>
 
@@ -111,6 +111,18 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>LICENSE</include>
+                </includes>
+                <targetPath>META-INF</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
